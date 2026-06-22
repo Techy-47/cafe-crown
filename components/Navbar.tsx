@@ -2,11 +2,13 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
+import { useTheme } from "@/context/ThemeContext";
 import CartDrawer from "./CartDrawer";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   const { totalItems, toggleCart } = useCart();
+  const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled]   = useState(false);
   const [menuOpen, setMenuOpen]   = useState(false);
 
@@ -51,6 +53,14 @@ export default function Navbar() {
             <Link href="/order" className={`btn btn-gold btn-sm ${styles.orderBtn}`}>
               Order Online
             </Link>
+
+            <button
+              className={styles.themeToggle}
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+            >
+              {theme === "light" ? "🌙" : "☀️"}
+            </button>
 
             <button
               id="cart-toggle-btn"

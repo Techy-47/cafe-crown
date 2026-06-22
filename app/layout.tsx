@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
+import { ThemeProvider } from "@/context/ThemeContext";
 import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
@@ -42,26 +43,28 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body>
-        <CartProvider>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-          <Toaster
-            position="bottom-center"
-            toastOptions={{
-              className: "toast-success",
-              duration: 3000,
-              style: {
-                background: "#2D5A3D",
-                color: "#fff",
-                fontFamily: "'Outfit', sans-serif",
-                fontWeight: 500,
-                borderRadius: "9999px",
-                padding: "12px 20px",
-              },
-            }}
-          />
-        </CartProvider>
+        <ThemeProvider>
+          <CartProvider>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+            <Toaster
+              position="bottom-center"
+              toastOptions={{
+                className: "toast-success",
+                duration: 3000,
+                style: {
+                  background: "#2D5A3D",
+                  color: "#fff",
+                  fontFamily: "'Outfit', sans-serif",
+                  fontWeight: 500,
+                  borderRadius: "9999px",
+                  padding: "12px 20px",
+                },
+              }}
+            />
+          </CartProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

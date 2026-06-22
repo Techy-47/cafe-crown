@@ -60,6 +60,12 @@ export async function PATCH(
 
     const orderData = orderDoc.data()!;
 
+    // Free the table if order is delivered or cancelled
+    if ((status === "delivered" || status === "cancelled") && orderData.tableNumber) {
+      const tableRef = db.collection("tables").doc(orderData.tableNumber);
+      await tableRef.update({ isVacant: true }).catch(console.error);
+    }
+
     // Fire WhatsApp status update to customer (non-blocking)
     fetch(`${process.env.NEXT_PUBLIC_APP_URL || ""}/api/whatsapp/notify`, {
       method: "POST",

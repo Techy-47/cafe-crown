@@ -439,3 +439,16 @@
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+/* OTP Modal */
+.modalOverlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center; z-index: 2000;
+}
+.modalContent {
+  background: var(--bg-card); padding: 2rem; border-radius: 1rem;
+  width: 90%; max-width: 400px; text-align: center;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-medium);
+}

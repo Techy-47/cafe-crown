@@ -1,0 +1,30 @@
+{
+  "name": "cafe-crown",
+  "version": "1.0.0",
+  "description": "Professional website for Cafe Crown, Lucknow",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "firebase": "^10.12.3",
+    "firebase-admin": "^13.10.0",
+    "next": "14.2.5",
+    "razorpay": "^2.9.2",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hot-toast": "^2.4.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "typescript": "^5"
+  }
+}

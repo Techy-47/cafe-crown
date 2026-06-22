@@ -1,0 +1,108 @@
+.footer { background: var(--crown-charcoal, #1A2E22); }
+
+.topBand { padding: 4rem 0 3rem; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 1fr 1fr;
+  gap: 3rem;
+}
+
+/* Brand */
+.logo { display: flex; align-items: center; gap: 0.625rem; margin-bottom: 1rem; }
+.crownIcon { font-size: 1.75rem; }
+.logoMain {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem; font-weight: 700; color: #fff;
+}
+.logoTagline {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.5rem; color: rgba(232,160,64,0.75);
+  letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px;
+}
+
+.brandDesc {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.875rem; line-height: 1.65;
+  color: rgba(245,240,232,0.6); margin-bottom: 1rem;
+}
+
+.rating {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8125rem; color: rgba(245,240,232,0.5);
+}
+.stars { color: #F59E0B; font-size: 0.875rem; letter-spacing: 1px; }
+
+/* Columns */
+.colTitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.6875rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: #E8A040; margin-bottom: 1.25rem;
+}
+
+.linkList { display: flex; flex-direction: column; gap: 0.625rem; }
+.footerLink {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem; color: rgba(245,240,232,0.65);
+  transition: all 0.2s; display: inline-block;
+}
+.footerLink:hover { color: #E8A040; transform: translateX(4px); }
+
+/* Contact */
+.contactList { display: flex; flex-direction: column; gap: 0.875rem; }
+.contactList li { display: flex; align-items: flex-start; gap: 0.625rem; }
+.contactIcon { font-size: 1rem; margin-top: 1px; flex-shrink: 0; }
+
+.address {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.875rem; color: rgba(245,240,232,0.65);
+  font-style: normal; line-height: 1.5;
+}
+.hours {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.875rem; color: rgba(245,240,232,0.75); font-weight: 500;
+}
+.hoursNote {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem; color: rgba(212,74,58,0.8); margin-top: 1px;
+}
+.footerText {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.875rem; color: rgba(245,240,232,0.65);
+}
+
+/* Map */
+.mapWrapper {
+  border-radius: 0.75rem; overflow: hidden; margin-bottom: 0.75rem;
+  border: 1px solid rgba(232,160,64,0.15);
+}
+.directionsBtn { display: inline-flex; margin-top: 0.25rem; }
+
+/* Bottom */
+.bottomBand {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 1.25rem 0;
+}
+.bottomBand .container {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 0.5rem;
+}
+.copyright {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8125rem; color: rgba(245,240,232,0.35);
+}
+.tagline {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8125rem; color: rgba(232,160,64,0.5);
+}
+
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; gap: 2rem; }
+  .topBand { padding: 2.5rem 0 2rem; }
+  .bottomBand .container { flex-direction: column; align-items: center; text-align: center; }
+}

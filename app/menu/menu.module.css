@@ -1,0 +1,445 @@
+/* ═══════════════════════════════════════════════════════════════
+   CAFE CROWN — Menu Page Styles
+   Forest green hero, sticky tabs, responsive item card grid
+═══════════════════════════════════════════════════════════════ */
+
+/* ── HERO BANNER ─────────────────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, #1A3525 0%, #2D5A3D 50%, #3D7A55 100%);
+  padding: 5rem 1.5rem 3.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(232, 160, 64, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(61, 122, 85, 0.25) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.heroPattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.015) 0px,
+      rgba(255,255,255,0.015) 1px,
+      transparent 1px,
+      transparent 40px
+    );
+  pointer-events: none;
+}
+
+.vegBanner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(232, 160, 64, 0.18);
+  border: 1px solid rgba(232, 160, 64, 0.45);
+  border-radius: 9999px;
+  padding: 0.35rem 1.1rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #F5C06A;
+  margin-bottom: 1.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+.vegBannerDot {
+  width: 8px;
+  height: 8px;
+  background: #4CAF50;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.heroTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.heroTitleAccent {
+  color: #E8A040;
+  display: block;
+}
+
+.heroSubtitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(0.95rem, 2vw, 1.2rem);
+  color: rgba(245, 240, 232, 0.8);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  position: relative;
+  z-index: 1;
+}
+
+.heroDecor {
+  position: absolute;
+  font-size: 8rem;
+  opacity: 0.04;
+  pointer-events: none;
+  user-select: none;
+}
+.heroDecor:first-of-type { top: -1rem; left: -2rem; }
+.heroDecor:last-of-type  { bottom: -2rem; right: -2rem; transform: rotate(15deg); }
+
+/* ── STICKY CATEGORY TAB BAR ─────────────────────────────────── */
+.stickyNav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(45, 90, 61, 0.12);
+  box-shadow: 0 2px 16px rgba(26, 46, 34, 0.08);
+}
+
+.tabBar {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  gap: 0;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.tabBar::-webkit-scrollbar { display: none; }
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1rem 1.1rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4A6553;
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+  background: none;
+  border-bottom: 3px solid transparent;
+  transition: all 250ms ease;
+  position: relative;
+  letter-spacing: 0.01em;
+  flex-shrink: 0;
+}
+
+.tab:hover {
+  color: #2D5A3D;
+  background: rgba(45, 90, 61, 0.05);
+}
+
+.tabActive {
+  color: #2D5A3D;
+  border-bottom-color: #E8A040;
+  font-weight: 700;
+}
+
+.tabIcon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* ── PAGE CONTENT WRAPPER ────────────────────────────────────── */
+.pageContent {
+  background: #FAFAF7;
+  min-height: 60vh;
+  padding-bottom: 5rem;
+}
+
+/* ── CATEGORY SECTION ────────────────────────────────────────── */
+.categorySection {
+  padding-top: 3rem;
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(45, 90, 61, 0.1);
+}
+
+.categoryIcon {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.categoryTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.3rem, 3vw, 1.75rem);
+  font-weight: 700;
+  color: #1A2E22;
+}
+
+.categoryCount {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #8A9E92;
+  background: #F0EDE4;
+  border-radius: 9999px;
+  padding: 0.2rem 0.65rem;
+  margin-left: auto;
+}
+
+/* ── ITEM GRID ────────────────────────────────────────────────── */
+.itemGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+/* ── ITEM CARD ────────────────────────────────────────────────── */
+.itemCard {
+  background: #FFFFFF;
+  border-radius: 1rem;
+  border: 1px solid rgba(45, 90, 61, 0.1);
+  border-left: 3px solid #43A047;
+  box-shadow: 0 1px 4px rgba(26, 46, 34, 0.07);
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: all 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.itemCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(45, 90, 61, 0.02), transparent);
+  opacity: 0;
+  transition: opacity 250ms ease;
+  pointer-events: none;
+}
+
+.itemCard:hover {
+  box-shadow: 0 8px 28px rgba(26, 46, 34, 0.14);
+  transform: translateY(-3px);
+  border-color: rgba(232, 160, 64, 0.5);
+  border-left-color: #2D5A3D;
+}
+
+.itemCard:hover::before { opacity: 1; }
+
+/* Card top row: veg icon + badge */
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 1.5rem;
+}
+
+.vegIcon {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #43A047;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.vegDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #43A047;
+}
+
+/* ── BADGE VARIANTS ───────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 0.18rem 0.55rem;
+  border-radius: 9999px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.badgeBestseller {
+  background: linear-gradient(135deg, #FFF3CD, #FFE082);
+  color: #7B5800;
+  border: 1px solid #FFD54F;
+}
+
+.badgeSpicy {
+  background: linear-gradient(135deg, #FFEBEE, #FFCDD2);
+  color: #B71C1C;
+  border: 1px solid #EF9A9A;
+}
+
+.badgeNew {
+  background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+  color: #1B5E20;
+  border: 1px solid #A5D6A7;
+}
+
+.badgeSpecial {
+  background: linear-gradient(135deg, #1A2E22, #2D3A2E);
+  color: #E8A040;
+  border: 1px solid #E8A040;
+}
+
+.badgeGluten {
+  background: linear-gradient(135deg, #F3E5F5, #E1BEE7);
+  color: #4A148C;
+  border: 1px solid #CE93D8;
+}
+
+/* Card item name */
+.itemName {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #1A2E22;
+  line-height: 1.35;
+  flex: 1;
+}
+
+/* Card description */
+.itemDesc {
+  font-size: 0.8rem;
+  color: #8A9E92;
+  line-height: 1.4;
+}
+
+/* Card bottom row: price + add button */
+.cardBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.itemPrice {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #2D5A3D;
+}
+
+.itemPriceMrp {
+  font-size: 0.75rem;
+  color: #8A9E92;
+  font-weight: 400;
+}
+
+.addBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.9rem;
+  background: transparent;
+  color: #2D5A3D;
+  border: 1.5px solid #2D5A3D;
+  border-radius: 9999px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 250ms ease;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.addBtn:hover {
+  background: #2D5A3D;
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(45, 90, 61, 0.35);
+  transform: translateY(-1px);
+}
+
+.addBtn:active {
+  transform: translateY(0);
+}
+
+/* ── EMPTY STATE ──────────────────────────────────────────────── */
+.emptyState {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  color: #8A9E92;
+}
+
+.emptyStateIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .itemGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .itemGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 4rem 1rem 2.5rem;
+  }
+
+  .tabBar {
+    padding-inline: 0.75rem;
+    gap: 0;
+  }
+
+  .tab {
+    padding: 0.85rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .itemGrid {
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tab {
+    padding: 0.75rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .tabIcon {
+    font-size: 0.875rem;
+  }
+}

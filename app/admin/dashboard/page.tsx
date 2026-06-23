@@ -44,7 +44,6 @@ interface Order {
   customerName: string;
   phone:        string;
   orderType:    OrderType;
-  tableNumber?: string;
   items:        OrderItem[];
   total:        number;
   status:       OrderStatus;
@@ -161,7 +160,6 @@ export default function AdminDashboardPage() {
             customerName: d.customerName ?? d.name ?? 'Guest',
             phone:        d.phone        ?? d.customerPhone ?? '—',
             orderType:    d.orderType    ?? d.type          ?? 'takeaway',
-            tableNumber:  d.tableNumber,
             items:        Array.isArray(d.items) ? d.items  : [],
             total:        d.total        ?? d.totalAmount   ?? 0,
             status:       d.status       ?? 'placed',
@@ -430,7 +428,7 @@ export default function AdminDashboardPage() {
                               }`}
                             >
                               {order.orderType === 'dine-in' ? '🍴' : '🛍️'}{' '}
-                              {order.orderType === 'dine-in' ? `Dine-in (${order.tableNumber || 'No Table'})` : 'Takeaway'}
+                              {order.orderType === 'dine-in' ? 'Dine-in' : 'Takeaway'}
                             </span>
 
                             {/* Current status badge */}

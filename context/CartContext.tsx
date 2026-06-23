@@ -42,11 +42,13 @@ function cartReducer(state: CartState, action: CartAction): CartState {
           items: state.items.map((i) =>
             i.id === action.payload.id ? { ...i, quantity: i.quantity + 1 } : i
           ),
+          isOpen: true,
         };
       }
       return {
         ...state,
         items: [...state.items, { ...action.payload, quantity: 1 }],
+        isOpen: true,
       };
     }
     case "REMOVE_ITEM":

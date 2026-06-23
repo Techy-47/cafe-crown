@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { sendReceipt } from "@/lib/mailer";
 
 const OrderItemSchema = z.object({
   id:    z.string(),
@@ -11,7 +10,6 @@ const OrderItemSchema = z.object({
 
 const CreateOrderSchema = z.object({
   customerName:       z.string().min(1).max(80),
-  email:              z.string().email(),
   phone:              z.string().regex(/^[6-9]\d{9}$/, "Invalid Indian mobile number"),
   orderType:          z.enum(["dine-in", "takeaway"]),
   tableNumber:        z.string().nullable().optional(),
@@ -48,15 +46,6 @@ export async function POST(req: NextRequest) {
     };
 
     const docRef = await ordersRef.add(newOrder);
-
-    // Lock table if dine-in
-    if (data.orderType === "dine-in" && data.tableNumber) {
-      const tableRef = db.collection("tables").doc(data.tableNumber);
-      await tableRef.update({ isVacant: false }).catch(console.error);
-    }
-
-    // Send email receipt (non-blocking)
-    sendReceipt(data.email, { id: docRef.id, ...newOrder }).catch(console.error);
 
     // Fire WhatsApp notification (non-blocking)
     fetch(`${process.env.NEXT_PUBLIC_APP_URL || ""}/api/whatsapp/notify`, {
